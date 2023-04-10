@@ -1,0 +1,803 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix msc: <http://www.semanticweb.org/ontologies/music#>.
+
+<#JoinTableReleasesAlbumsTracksSongsFeaturesLyrics> rr:sqlQuery """
+SELECT S.SONG_ID,	
+	 S.SONG_NAME,
+	 S.POPULARITY AS S_POPULARITY,
+	 S.EXPLICIT,
+	 S.SONG_TYPE,
+	 AF.DURATION_MS,
+	 AF.TEMPO,
+	 AF.TIME_SIGNATURE,
+	 AF.ACOUSTICNESS,
+	 AF.DANCEABILITY,
+	 AF.ENERGY,
+	 AF.INSTRUMENTALNESS,
+	 AF.LIVENESS,
+	 AF.LOUDNESS,
+	 AF.SPEECHINESS,
+	 AF.VALENCE,
+	 T.RELEASE_DATE AS T_RELEASE_DATE,
+	 T.RELEASE_DATE_PRECISION AS T_RELEASE_DATE_PRECISION,
+	 A.ALBUM_ID,
+	 A.IMAGE_URL,
+	 A.NAME,
+	 A.POPULARITY AS A_POPULARITY,
+	 A.TOTAL_TRACKS,
+	 A.ALBUM_TYPE,
+	 R.RELEASE_DATE AS R_RELEASE_DATE,
+	 R.RELEASE_DATE_PRECISION AS R_RELEASE_DATE_PRECISION,
+	 RIGHT(CONCAT('0000000000', (DENSE_RANK() OVER (ORDER BY  R.RELEASE_DATE,A.ALBUM_ID))), 4) AS HYSTORICAL_ORDER,
+	 RIGHT(CONCAT('0000000000', T.TRACK_NUMBER), 2) AS TRACK_REFERENCE,
+	 L.LYRICS,
+	 POP.YEAR_END_SCORE,
+	 POP.IS_POP,
+	 POP.YEAR
+FROM RELEASES R INNER JOIN ALBUMS A 
+				ON R.ALBUM_ID = A.ALBUM_ID
+			 INNER JOIN ALBUM_POP POP
+				ON A.ALBUM_ID = POP.ALBUM_ID
+			 INNER JOIN TRACKS T
+				ON A.ALBUM_ID = T.ALBUM_ID
+			 INNER JOIN SONGS S
+				ON T.SONG_ID = S.SONG_ID
+			 INNER JOIN ACOUSTIC_FEATURES AF 
+				ON T.SONG_ID = AF.SONG_ID
+			 INNER JOIN LYRICS L
+				ON T.SONG_ID = L.SONG_ID
+			 ORDER BY R.RELEASE_DATE, A.ALBUM_ID ASC;
+""".
+
+<#JoinTableArtistsReleasesAlbums> rr:sqlQuery """
+SELECT
+	 ALB.ALBUM_ID,
+	 ALB.IMAGE_URL AS COVER,
+	 REL.RELEASE_DATE,
+	 REL.RELEASE_DATE_PRECISION,
+	 ART.ARTIST_ID,
+	 ART.IMAGE_URL AS IMG
+FROM ALBUMS ALB INNER JOIN RELEASES REL 
+				ON ALB.ALBUM_ID = REL.ALBUM_ID
+			 INNER JOIN ARTISTS ART
+				ON REL.ARTIST_ID = ART.ARTIST_ID;
+""".
+
+<#JoinPopularitySongsFeatures> rr:sqlQuery """
+SELECT
+	SNG.SONG_ID,
+	POP.YEAR_END_SCORE,
+	POP.IS_POP,
+	POP.YEAR,
+	SNG.POPULARITY,
+	AF.DURATION_MS,
+	AF.TEMPO
+FROM SONGS SNG INNER JOIN ACOUSTIC_FEATURES AF 
+				ON SNG.SONG_ID = AF.SONG_ID
+			   INNER JOIN SONG_POP POP
+			    ON SNG.SONG_ID = POP.SONG_ID;
+""".
+
+<#JoinPopularityArtists> rr:sqlQuery """
+SELECT
+	 POP.ARTIST_ID,
+	 POP.YEAR_END_SCORE,
+	 POP.IS_POP,
+	 POP.YEAR,
+	 ART.POPULARITY,
+	 ART.MAIN_GENRE
+FROM ARTIST_POP POP INNER JOIN ARTISTS ART 
+				ON POP.ARTIST_ID = ART.ARTIST_ID;
+""".
+
+<#AcousticFeaturesMap>
+	rr:logicalTable <#JoinTableReleasesAlbumsTracksSongsFeaturesLyrics>;
+
+	rr:subjectMap	[
+		rr:template "http://data.org/AcousticFeatures/{SONG_ID}";
+		rr:class msc:AcousticFeatures;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:track_reference;
+		rr:objectMap	[
+			rr:template "{HYSTORICAL_ORDER}_{TRACK_REFERENCE}";
+			rr:termType rr:Literal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:duration;
+		rr:objectMap	[
+			rr:column "DURATION_MS";
+			rr:class xsd:integer;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:tempo;
+		rr:objectMap	[
+			rr:column "TEMPO";
+			rr:class xsd:decimal;
+		];
+	];
+	
+
+	rr:predicateObjectMap [
+		rr:predicate msc:time_signature;
+		rr:objectMap	[
+			rr:column "TIME_SIGNATURE";
+			rr:class xsd:integer;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:acousticness;
+		rr:objectMap	[
+			rr:column "ACOUSTICNESS";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:danceability;
+		rr:objectMap	[
+			rr:column "DANCEABILITY";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:energy;
+		rr:objectMap	[
+			rr:column "ENERGY";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:instrumentalness;
+		rr:objectMap	[
+			rr:column "INSTRUMENTALNESS";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:liveness;
+		rr:objectMap	[
+			rr:column "LIVENESS";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:loudness;
+		rr:objectMap	[
+			rr:column "LOUDNESS";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:speechiness;
+		rr:objectMap	[
+			rr:column "SPEECHINESS";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:valence;
+		rr:objectMap	[
+			rr:column "VALENCE";
+			rr:class xsd:decimal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:lyrics;
+		rr:objectMap	[
+			rr:column "LYRICS";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:areFeaturesOf;
+        rr:objectMap [
+            rr:parentTriplesMap <#SongMap>;
+            rr:joinCondition [
+                rr:child "DURATION_MS";
+                rr:parent "DURATION_MS";
+            ];
+			rr:joinCondition [
+                rr:child "TEMPO";
+                rr:parent "TEMPO";
+            ];
+        ];
+    ];
+ .
+ 
+<#SongMap>
+	rr:logicalTable <#JoinTableReleasesAlbumsTracksSongsFeaturesLyrics>;
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/Song/{SONG_ID}";
+		rr:class msc:Song;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:name;
+		rr:objectMap	[
+			rr:column "SONG_NAME";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popularity;
+		rr:objectMap	[
+			rr:column "S_POPULARITY";
+			rr:class xsd:integer;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:explicit;
+		rr:objectMap	[
+			rr:column "EXPLICIT";
+			rr:class xsd:boolean;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:song_type;
+		rr:objectMap	[
+			rr:column "SONG_TYPE";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:duration;
+		rr:objectMap	[
+			rr:column "DURATION_MS";
+			rr:class xsd:integer;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:tempo;
+		rr:objectMap	[
+			rr:column "TEMPO";
+			rr:class xsd:decimal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:release_date;
+		rr:objectMap	[
+			rr:column "T_RELEASE_DATE";
+			rr:class rdfs:Literal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:release_date_precision;
+		rr:objectMap	[
+			rr:column "T_RELEASE_DATE_PRECISION";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:track_reference;
+		rr:objectMap	[
+			rr:template "{HYSTORICAL_ORDER}_{TRACK_REFERENCE}";
+			rr:termType rr:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasFeatures;
+        rr:objectMap [
+            rr:parentTriplesMap <#AcousticFeaturesMap>;
+            rr:joinCondition [
+                rr:child "DURATION_MS";
+                rr:parent "DURATION_MS";
+            ];
+			rr:joinCondition [
+                rr:child "TEMPO";
+                rr:parent "TEMPO";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:isPartOf;
+        rr:objectMap [
+            rr:parentTriplesMap <#AlbumMap>;
+            rr:joinCondition [
+                rr:child "HYSTORICAL_ORDER";
+                rr:parent "HYSTORICAL_ORDER";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasSongPopularityProperties;
+        rr:objectMap [
+            rr:parentTriplesMap <#SongPopMap>;
+            rr:joinCondition [
+                rr:child "S_POPULARITY";
+                rr:parent "POPULARITY";
+            ];
+			rr:joinCondition [
+                rr:child "DURATION_MS";
+                rr:parent "DURATION_MS";
+            ];
+			rr:joinCondition [
+                rr:child "TEMPO";
+                rr:parent "TEMPO";
+            ];
+        ];
+    ];
+.
+
+<#AlbumMap>
+	rr:logicalTable <#JoinTableReleasesAlbumsTracksSongsFeaturesLyrics>;
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/Album/{ALBUM_ID}";
+		rr:class msc:Album;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:cover;
+		rr:objectMap	[
+			rr:column "IMAGE_URL";
+			rr:termType rr:Literal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:name;
+		rr:objectMap	[
+			rr:column "NAME";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popularity;
+		rr:objectMap	[
+			rr:column "A_POPULARITY";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:total_tracks;
+		rr:objectMap	[
+			rr:column "TOTAL_TRACKS";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:album_type;
+		rr:objectMap	[
+			rr:column "ALBUM_TYPE";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:hystorical_order;
+		rr:objectMap	[
+			rr:column "HYSTORICAL_ORDER";
+			rr:termType rr:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:isComposedBy;
+        rr:objectMap [
+            rr:parentTriplesMap <#SongMap>;
+            rr:joinCondition [
+                rr:child "HYSTORICAL_ORDER";
+                rr:parent "HYSTORICAL_ORDER";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:containsAcousticFeatures;
+        rr:objectMap [
+            rr:parentTriplesMap <#AcousticFeaturesMap>;
+            rr:joinCondition [
+                rr:child "HYSTORICAL_ORDER";
+                rr:parent "HYSTORICAL_ORDER";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:albumRelease;
+        rr:objectMap [
+            rr:parentTriplesMap <#ReleaseMap>;
+            rr:joinCondition [
+                rr:child "IMAGE_URL";
+                rr:parent "COVER";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasAlbumPopularityProperties;
+        rr:objectMap [
+            rr:parentTriplesMap <#AlbumPopMap>;
+            rr:joinCondition [
+                rr:child "A_POPULARITY";
+                rr:parent "A_POPULARITY";
+            ];
+			rr:joinCondition [
+                rr:child "HYSTORICAL_ORDER";
+                rr:parent "HYSTORICAL_ORDER";
+            ];
+        ];
+    ];
+.
+
+<#ArtistMap>
+	rr:logicalTable [ rr:tableName "ARTISTS" ];
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/Artist/{ARTIST_ID}";
+		rr:class msc:Artist;
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:name;
+		rr:objectMap	[
+			rr:column "NAME";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:followers;
+		rr:objectMap	[
+			rr:column "FOLLOWERS";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popularity;
+		rr:objectMap	[
+			rr:column "POPULARITY";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:artist_type;
+		rr:objectMap	[
+			rr:column "ARTIST_TYPE";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:genre;
+		rr:objectMap	[
+			rr:column "MAIN_GENRE";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:img;
+		rr:objectMap	[
+			rr:column "IMAGE_URL";
+			rr:termType rr:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:artistRelease;
+        rr:objectMap [
+            rr:parentTriplesMap <#ReleaseMap>;
+            rr:joinCondition [
+                rr:child "IMAGE_URL";
+                rr:parent "IMG";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasArtistPopularityProperties;
+        rr:objectMap [
+            rr:parentTriplesMap <#ArtistPopMap>;
+            rr:joinCondition [
+                rr:child "POPULARITY";
+                rr:parent "POPULARITY";
+            ];
+			rr:joinCondition [
+                rr:child "MAIN_GENRE";
+                rr:parent "MAIN_GENRE";
+            ];
+        ];
+    ];
+.
+
+<#ReleaseMap>
+	rr:logicalTable <#JoinTableArtistsReleasesAlbums>;
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/Release/{ARTIST_ID}_{ALBUM_ID}";
+		rr:class msc:Release;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:img;
+		rr:objectMap	[
+			rr:column "IMG";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:cover;
+		rr:objectMap	[
+			rr:column "COVER";
+			rr:class rdfs:Literal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:release_date;
+		rr:objectMap	[
+			rr:column "RELEASE_DATE";
+			rr:class rdfs:Literal;
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:release_date_precision;
+		rr:objectMap	[
+			rr:column "RELEASE_DATE_PRECISION";
+			rr:class rdfs:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:albumRelease;
+        rr:objectMap [
+            rr:parentTriplesMap <#AlbumMap>;
+            rr:joinCondition [
+                rr:child "COVER";
+                rr:parent "IMAGE_URL";
+            ];
+        ];
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:artistRelease;
+        rr:objectMap [
+            rr:parentTriplesMap <#ArtistMap>;
+            rr:joinCondition [
+                rr:child "IMG";
+                rr:parent "IMAGE_URL";
+            ];
+        ];
+    ];
+.
+
+<#SongPopMap>
+	rr:logicalTable <#JoinPopularitySongsFeatures>;
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/SongPop/{SONG_ID}";
+		rr:class msc:SongPopularity;
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:year_end_score;
+		rr:objectMap	[
+			rr:column "YEAR_END_SCORE";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popular;
+		rr:objectMap	[
+			rr:column "IS_POP";
+			rr:class xsd:boolean;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:year;
+		rr:objectMap	[
+			rr:column "YEAR";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popularity;
+		rr:objectMap	[
+			rr:column "POPULARITY";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:duration;
+		rr:objectMap	[
+			rr:column "DURATION_MS";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:tempo;
+		rr:objectMap	[
+			rr:column "TEMPO";
+			rr:class xsd:decimal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasSong;
+        rr:objectMap [
+            rr:parentTriplesMap <#SongMap>;
+            rr:joinCondition [
+                rr:child "POPULARITY";
+                rr:parent "A_POPULARITY";
+            ];
+			rr:joinCondition [
+                rr:child "DURATION_MS";
+                rr:parent "DURATION_MS";
+            ];
+			rr:joinCondition [
+                rr:child "TEMPO";
+                rr:parent "TEMPO";
+            ];
+        ];
+    ];
+.
+
+<#AlbumPopMap>
+	rr:logicalTable <#JoinTableReleasesAlbumsTracksSongsFeaturesLyrics>;
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/AlbumPop/{ALBUM_ID}";
+		rr:class msc:AlbumPopularity;
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:year_end_score;
+		rr:objectMap	[
+			rr:column "YEAR_END_SCORE";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popular;
+		rr:objectMap	[
+			rr:column "IS_POP";
+			rr:class xsd:boolean;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:year;
+		rr:objectMap	[
+			rr:column "YEAR";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popularity;
+		rr:objectMap	[
+			rr:column "A_POPULARITY";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:hystorical_order;
+		rr:objectMap	[
+			rr:column "HYSTORICAL_ORDER";
+			rr:termType rr:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasAlbum;
+        rr:objectMap [
+            rr:parentTriplesMap <#AlbumMap>;
+            rr:joinCondition [
+                rr:child "A_POPULARITY";
+                rr:parent "A_POPULARITY";
+            ];
+			rr:joinCondition [
+                rr:child "HYSTORICAL_ORDER";
+                rr:parent "HYSTORICAL_ORDER";
+            ];
+        ];
+    ];
+.
+
+<#ArtistPopMap>
+	rr:logicalTable <#JoinPopularityArtists>;
+		
+	rr:subjectMap	[
+		rr:template "http://data.org/ArtistPop/{ARTIST_ID}";
+		rr:class msc:ArtistPopularity;
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate msc:year_end_score;
+		rr:objectMap	[
+			rr:column "YEAR_END_SCORE";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popular;
+		rr:objectMap	[
+			rr:column "IS_POP";
+			rr:class xsd:boolean;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:year;
+		rr:objectMap	[
+			rr:column "YEAR";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:popularity;
+		rr:objectMap	[
+			rr:column "POPULARITY";
+			rr:class xsd:integer;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate msc:genre;
+		rr:objectMap	[
+			rr:column "MAIN_GENRE";
+			rr:termType rr:Literal;
+		];
+	];
+	
+	rr:predicateObjectMap [
+        rr:predicate msc:hasArtist;
+        rr:objectMap [
+            rr:parentTriplesMap <#ArtistMap>;
+            rr:joinCondition [
+                rr:child "POPULARITY";
+                rr:parent "POPULARITY";
+            ];
+			rr:joinCondition [
+                rr:child "MAIN_GENRE";
+                rr:parent "MAIN_GENRE";
+            ];
+        ];
+    ];
+.

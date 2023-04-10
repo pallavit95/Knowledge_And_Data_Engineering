@@ -1,0 +1,432 @@
+@prefix : <http://www.semanticweb.org/ontologies/music#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/music#> .
+
+<http://www.semanticweb.org/ontologies/music> rdf:type owl:Ontology ;
+                                               rdfs:comment "Ontology designed to represent Music domain for KDE group project" ;
+                                               rdfs:label "Music" ;
+                                               owl:versionInfo "1.0.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ontologydesignpatterns.org/opla-sd#entityPosition
+<http://ontologydesignpatterns.org/opla-sd#entityPosition> rdf:type owl:AnnotationProperty .
+
+
+###  http://ontologydesignpatterns.org/opla-sd#entityPositionX
+<http://ontologydesignpatterns.org/opla-sd#entityPositionX> rdf:type owl:AnnotationProperty .
+
+
+###  http://ontologydesignpatterns.org/opla-sd#entityPositionY
+<http://ontologydesignpatterns.org/opla-sd#entityPositionY> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/music.owl#albumRelease
+<http://www.semanticweb.org/ontologies/music.owl#albumRelease> rdf:type owl:ObjectProperty ,
+                                                                        owl:SymmetricProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                               rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Release> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf
+<http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf> rdf:type owl:ObjectProperty ;
+                                                                owl:inverseOf <http://www.semanticweb.org/ontologies/music.owl#hasFeatures> ;
+                                                                rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                                rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Song> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#artistRelease
+<http://www.semanticweb.org/ontologies/music.owl#artistRelease> rdf:type owl:ObjectProperty ,
+                                                                         owl:SymmetricProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Artist> ;
+                                                                rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Release> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures
+<http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures> rdf:type owl:ObjectProperty ,
+                                                                                    owl:TransitiveProperty ;
+                                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                                           rdfs:range <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasAlbum
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbum> rdf:type owl:ObjectProperty ;
+                                                           owl:inverseOf <http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties> ;
+                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ;
+                                                           rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Album> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties> rdf:type owl:ObjectProperty ;
+                                                                               rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                                               rdfs:range <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasArtist
+<http://www.semanticweb.org/ontologies/music.owl#hasArtist> rdf:type owl:ObjectProperty ;
+                                                            owl:inverseOf <http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties> ;
+                                                            rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> ;
+                                                            rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties
+<http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties> rdf:type owl:ObjectProperty ;
+                                                                                rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Artist> ;
+                                                                                rdfs:range <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasFeatures
+<http://www.semanticweb.org/ontologies/music.owl#hasFeatures> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                              rdfs:range <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasSong
+<http://www.semanticweb.org/ontologies/music.owl#hasSong> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties> ;
+                                                          rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                          rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Song> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties
+<http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties> rdf:type owl:ObjectProperty ;
+                                                                              rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                                              rdfs:range <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#isComposedBy
+<http://www.semanticweb.org/ontologies/music.owl#isComposedBy> rdf:type owl:ObjectProperty ;
+                                                               owl:inverseOf <http://www.semanticweb.org/ontologies/music.owl#isPartOf> ;
+                                                               rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                               rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Song> .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#isPartOf
+<http://www.semanticweb.org/ontologies/music.owl#isPartOf> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                           rdfs:range <http://www.semanticweb.org/ontologies/music.owl#Album> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/music.owl#acousticness
+<http://www.semanticweb.org/ontologies/music.owl#acousticness> rdf:type owl:DatatypeProperty ,
+                                                                        owl:FunctionalProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                               rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#album_type
+<http://www.semanticweb.org/ontologies/music.owl#album_type> rdf:type owl:DatatypeProperty ,
+                                                                      owl:FunctionalProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                             rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#artist_type
+<http://www.semanticweb.org/ontologies/music.owl#artist_type> rdf:type owl:DatatypeProperty ,
+                                                                       owl:FunctionalProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Artist> ;
+                                                              rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#cover
+<http://www.semanticweb.org/ontologies/music.owl#cover> rdf:type owl:DatatypeProperty ,
+                                                                 owl:FunctionalProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ,
+                                                                    <http://www.semanticweb.org/ontologies/music.owl#Release> ;
+                                                        rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#duration
+<http://www.semanticweb.org/ontologies/music.owl#duration> rdf:type owl:DatatypeProperty ,
+                                                                    owl:FunctionalProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ,
+                                                                       <http://www.semanticweb.org/ontologies/music.owl#Song> ,
+                                                                       <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#energy
+<http://www.semanticweb.org/ontologies/music.owl#energy> rdf:type owl:DatatypeProperty ,
+                                                                  owl:FunctionalProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                         rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#explicit
+<http://www.semanticweb.org/ontologies/music.owl#explicit> rdf:type owl:DatatypeProperty ,
+                                                                    owl:FunctionalProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#followers
+<http://www.semanticweb.org/ontologies/music.owl#followers> rdf:type owl:DatatypeProperty ,
+                                                                     owl:FunctionalProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Artist> ;
+                                                            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#genre
+<http://www.semanticweb.org/ontologies/music.owl#genre> rdf:type owl:DatatypeProperty ,
+                                                                 owl:FunctionalProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Artist> ,
+                                                                    <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> ;
+                                                        rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#hystorical_order
+<http://www.semanticweb.org/ontologies/music.owl#hystorical_order> rdf:type owl:DatatypeProperty ,
+                                                                            owl:FunctionalProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                                   rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#img
+<http://www.semanticweb.org/ontologies/music.owl#img> rdf:type owl:DatatypeProperty ,
+                                                               owl:FunctionalProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Artist> ,
+                                                                  <http://www.semanticweb.org/ontologies/music.owl#Release> ;
+                                                      rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#liveness
+<http://www.semanticweb.org/ontologies/music.owl#liveness> rdf:type owl:DatatypeProperty ,
+                                                                    owl:FunctionalProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                           rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#loudness
+<http://www.semanticweb.org/ontologies/music.owl#loudness> rdf:type owl:DatatypeProperty ,
+                                                                    owl:FunctionalProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                           rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#lyrics
+<http://www.semanticweb.org/ontologies/music.owl#lyrics> rdf:type owl:DatatypeProperty ,
+                                                                  owl:FunctionalProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                         rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#name
+<http://www.semanticweb.org/ontologies/music.owl#name> rdf:type owl:DatatypeProperty ,
+                                                                owl:FunctionalProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ,
+                                                                   <http://www.semanticweb.org/ontologies/music.owl#Artist> ,
+                                                                   <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                       rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#popular
+<http://www.semanticweb.org/ontologies/music.owl#popular> rdf:type owl:DatatypeProperty ,
+                                                                   owl:FunctionalProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ,
+                                                                      <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> ,
+                                                                      <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                          rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#popularity
+<http://www.semanticweb.org/ontologies/music.owl#popularity> rdf:type owl:DatatypeProperty ,
+                                                                      owl:FunctionalProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ,
+                                                                         <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ,
+                                                                         <http://www.semanticweb.org/ontologies/music.owl#Artist> ,
+                                                                         <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> ,
+                                                                         <http://www.semanticweb.org/ontologies/music.owl#Song> ,
+                                                                         <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#release_date
+<http://www.semanticweb.org/ontologies/music.owl#release_date> rdf:type owl:DatatypeProperty ,
+                                                                        owl:FunctionalProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ,
+                                                                           <http://www.semanticweb.org/ontologies/music.owl#Release> ,
+                                                                           <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                               rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#release_date_precision
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> rdf:type owl:DatatypeProperty ,
+                                                                                  owl:FunctionalProperty ;
+                                                                         rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ,
+                                                                                     <http://www.semanticweb.org/ontologies/music.owl#Release> ,
+                                                                                     <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                                         rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#song_type
+<http://www.semanticweb.org/ontologies/music.owl#song_type> rdf:type owl:DatatypeProperty ,
+                                                                     owl:FunctionalProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                            rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#speechiness
+<http://www.semanticweb.org/ontologies/music.owl#speechiness> rdf:type owl:DatatypeProperty ,
+                                                                       owl:FunctionalProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                              rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#tempo
+<http://www.semanticweb.org/ontologies/music.owl#tempo> rdf:type owl:DatatypeProperty ,
+                                                                 owl:FunctionalProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ,
+                                                                    <http://www.semanticweb.org/ontologies/music.owl#Song> ,
+                                                                    <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                        rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#time_signature
+<http://www.semanticweb.org/ontologies/music.owl#time_signature> rdf:type owl:DatatypeProperty ,
+                                                                          owl:FunctionalProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#total_tracks
+<http://www.semanticweb.org/ontologies/music.owl#total_tracks> rdf:type owl:DatatypeProperty ,
+                                                                        owl:FunctionalProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Album> ;
+                                                               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#track_reference
+<http://www.semanticweb.org/ontologies/music.owl#track_reference> rdf:type owl:DatatypeProperty ,
+                                                                           owl:FunctionalProperty ;
+                                                                  rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#Song> ;
+                                                                  rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#valence
+<http://www.semanticweb.org/ontologies/music.owl#valence> rdf:type owl:DatatypeProperty ,
+                                                                   owl:FunctionalProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> ;
+                                                          rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#year
+<http://www.semanticweb.org/ontologies/music.owl#year> rdf:type owl:DatatypeProperty ,
+                                                                owl:FunctionalProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ,
+                                                                   <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> ,
+                                                                   <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                       rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#year_end_score
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> rdf:type owl:DatatypeProperty ,
+                                                                          owl:FunctionalProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> ,
+                                                                             <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> ,
+                                                                             <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> ;
+                                                                 rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures
+<http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> rdf:type owl:Class ;
+                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid1 .
+
+_:genid1 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "260.2596294174863"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "276.2120589610303"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#Album
+<http://www.semanticweb.org/ontologies/music.owl#Album> rdf:type owl:Class ;
+                                                        <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid2 .
+
+_:genid2 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "223.56614268786575"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "15.023610169860099"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity
+<http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/ontologies/music.owl#Popularity> ;
+                                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid3 .
+
+_:genid3 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "143.54352189031565"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "79.76055127107477"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#Artist
+<http://www.semanticweb.org/ontologies/music.owl#Artist> rdf:type owl:Class ;
+                                                         <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid4 .
+
+_:genid4 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "226.56494224648688"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "15.398393444127086"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity
+<http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/ontologies/music.owl#Popularity> ;
+                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid5 .
+
+_:genid5 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "276.1792167242872"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "254.56630120383372"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#Popularity
+<http://www.semanticweb.org/ontologies/music.owl#Popularity> rdf:type owl:Class ;
+                                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid6 .
+
+_:genid6 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "131.39474707080282"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "211.02166821853427"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#Release
+<http://www.semanticweb.org/ontologies/music.owl#Release> rdf:type owl:Class ;
+                                                          <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid7 .
+
+_:genid7 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "153.26858698350657"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "36.47212903784615"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#Song
+<http://www.semanticweb.org/ontologies/music.owl#Song> rdf:type owl:Class ;
+                                                       <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid8 .
+
+_:genid8 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "145.19926265831364"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "149.87961162642318"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  http://www.semanticweb.org/ontologies/music.owl#SongPopularity
+<http://www.semanticweb.org/ontologies/music.owl#SongPopularity> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://www.semanticweb.org/ontologies/music.owl#Popularity> ;
+                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid9 .
+
+_:genid9 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "110.80568926998225"^^xsd:double ;
+          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "224.44034321720073"^^xsd:double ;
+          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

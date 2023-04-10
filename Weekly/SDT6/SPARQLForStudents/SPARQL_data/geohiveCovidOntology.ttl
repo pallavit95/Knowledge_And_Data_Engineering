@@ -1,0 +1,254 @@
+@prefix : <http://ontologies.geohive.ie/osi#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <https://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#>.
+@prefix osicovid: <http://ontologies.geohive.ie/covid#> .
+
+<http://ontologies.geohive.ie/covid#> rdf:type owl:Ontology ;
+	dc:date "2020-03-30"^^xsd:date ;
+	rdfs:comment """This is a simple ontology to describe the covid Linked data.""" ;
+	dc:creator "ADAPT and OSi".
+	
+#####
+#Classes
+#####
+osicovid:IrishCovidStatisticsRecord a owl:Class;
+	rdfs:label "Irish Covid daily statistics record" .
+	
+osicovid:IrishCovidCountyStatisticsRecord a owl:Class;
+	rdfs:label "Irish Covid county statistics record".
+
+osicovid:IrishCovidStatisticsProfileRecord a owl:Class;
+	rdfs:label "Irish Covid daily statistics profile record". 
+
+osicovid:RegionDetails a owl:Class;
+	rdfs:label "Region details".
+
+osicovid:MetadataStatement a owl:Class;
+	rdfs:label "Metadata Statement".
+	
+#####
+#Object Properties
+#####
+osicovid:regionDetails a owl:ObjectProperty ;
+	rdfs:label "Region details" ;
+	rdfs:range osicovid:RegionDetails;
+	rdfs:domain osicovid:IrishCovidCountyStatisticsRecord.
+
+osicovid:metadata a owl:ObjectProperty ;
+	rdfs:label "Metadata" ;
+	rdfs:range osicovid:MetadataStatement;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord, osicovid:IrishCovidCountyStatisticsRecord, osicovid:IrishCovidStatisticsProfileRecord .
+
+#####
+#Datatype Properties
+#####
+osicovid:covidCases a owl:DatatypeProperty;
+	rdfs:label "Covid cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidCountyStatisticsRecord .
+
+osicovid:covidCasesPopulationProportion a owl:DatatypeProperty;
+	rdfs:label "Covid cases population proportion" ;
+	rdfs:range xsd:float ;
+	rdfs:domain osicovid:IrishCovidCountyStatisticsRecord .
+
+osicovid:countyName a owl:DatatypeProperty;
+	rdfs:label "County Name" ;
+	rdfs:range xsd:string ;
+	rdfs:domain osicovid:RegionDetails .
+	
+osicovid:census2016Population a owl:DatatypeProperty;
+	rdfs:label "Census 2016 population" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:RegionDetails .
+	
+osicovid:uniqueGeospatialIdentifier a owl:DatatypeProperty;
+	rdfs:label "Unique Geospatial Identifier" ;
+	rdfs:range geo:Feature ;
+	rdfs:domain osicovid:RegionDetails .
+
+osicovid:confirmedCovidCases a owl:DatatypeProperty;
+	rdfs:label "Confirmed covid cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord, osicovid:IrishCovidCountyStatisticsRecord .
+	
+osicovid:covidCasesConfirmed a owl:DatatypeProperty;
+	rdfs:label "Confirmed covid cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord .
+
+osicovid:totalConfirmedCases a owl:DatatypeProperty;
+	rdfs:label "Total confirmed cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord, osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:confirmedCovidDeaths a owl:DatatypeProperty;
+	rdfs:label "Confirmed covid deaths" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord .
+
+osicovid:totalCovidDeaths a owl:DatatypeProperty;
+	rdfs:label "Total covid deaths" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord .
+
+osicovid:confirmedCovidRecoveries a owl:DatatypeProperty;
+	rdfs:label "Confirmed covid recoveries" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord .
+
+osicovid:totalCovidRecoveries a owl:DatatypeProperty;
+	rdfs:label "Total covid recoveries" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsRecord .
+
+osicovid:hospitalisedCases	a owl:DatatypeProperty;
+	rdfs:label "Hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:icuRequiredCases a owl:DatatypeProperty;
+	rdfs:label "ICU required cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:maleCases	a owl:DatatypeProperty;
+	rdfs:label "Male cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:femaleCases	a owl:DatatypeProperty;
+	rdfs:label "Female cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:unknownGenderCases	a owl:DatatypeProperty;
+	rdfs:label "Unknown gender cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age1Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 1 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age1-4Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 1-4 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age5-14Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 5-14 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age25-34Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 25-34 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age35-44Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 35-44 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age45-54Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 45-54 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age55-64Cases	a owl:DatatypeProperty;
+	rdfs:label "Age 55-64 cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age65UpCases a owl:DatatypeProperty;
+	rdfs:label "Age 65up cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:communityTransmissionCases	a owl:DatatypeProperty;
+	rdfs:label "Community transmission cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:closeContactCases	a owl:DatatypeProperty;
+	rdfs:label "Close contact cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:travelAbroadCases	a owl:DatatypeProperty;
+	rdfs:label "Travel abroad cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:underInvestigationCases	a owl:DatatypeProperty;
+	rdfs:label "Under investigation cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:healthcareWorkerCases a owl:DatatypeProperty;
+	rdfs:label "Healthcare worker cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:medianAgeCommunityTransmission a owl:DatatypeProperty;
+	rdfs:label "Median age community transmission" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:clustersNotified a owl:DatatypeProperty;
+	rdfs:label "Clusters Notified" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+
+osicovid:age5HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 5 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age5-14HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 5-14 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age15-24HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 15-24 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age25-34HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 25-34 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age35-44HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 35-44 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age45-54HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 45-54 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age55-64HospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 55-64 hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+osicovid:age65UpHospitalisedCases a owl:DatatypeProperty;
+	rdfs:label "Age 65 up hospitalised cases" ;
+	rdfs:range xsd:integer ;
+	rdfs:domain osicovid:IrishCovidStatisticsProfileRecord .
+	
+	
+	
+	

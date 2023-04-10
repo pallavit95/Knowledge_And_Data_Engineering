@@ -1,0 +1,28 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+
+<#AritstsTriplesMap>
+	a rr:TriplesMap ;
+	rr:logicalTable [ rr:tableName "sdt9" ] ;
+	rr:subjectMap [
+		rr:template "http://foo.example/Artist/{ID}" ;
+		rr:class dbpedia:Musician ;
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:SongBy ;
+		rr:objectMap [ rr:column "ARTISTNAME" ] 
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:SongFrom ;
+		rr:objectMap [ rr:column "COUNTRYOFORIGIN" ] 
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:SongTitle ;
+		rr:objectMap [ rr:column "TITLEOFTOPWORK" ] 
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:SongReleaseDate ;
+		rr:objectMap [ rr:column "RELEASEYEAR" ] 
+	] ;
+	.

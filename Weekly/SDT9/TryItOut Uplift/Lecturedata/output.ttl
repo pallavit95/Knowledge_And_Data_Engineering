@@ -1,0 +1,16 @@
+<http://foo.example/Person/2>
+        a       <http://xmlns.com/foaf/0.1/Person> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Kevin" .
+
+<http://foo.example/Person/1>
+        a       <http://xmlns.com/foaf/0.1/Person> ;
+        <http://xmlns.com/foaf/0.1/based_near>
+                <http://foo.example/Addresses/1> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Christophe" .
+
+<http://foo.example/Addresses/1>
+        a       <http://dbpedia.org/ontology/Place> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Brussels" .

@@ -1,0 +1,38 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+
+<#AddressTripleMap>
+	a rr:TriplesMap ;
+	rr:logicalTable [
+		rr:tableName "Addresses" 
+	] ;
+	rr:subjectMap [
+		rr:template "http://foo.example/Addresses/{ID}" ;
+		rr:class dbpedia:Place ;
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:name ;
+		rr:objectMap [ rr:column "CITY" ]
+	] ;
+	.
+
+<#PersonTriplesMap>
+	a rr:TriplesMap;
+	rr:logicalTable [ rr:tableName "People" ] ;
+	rr:subjectMap [
+		rr:template "http://foo.example/Person/{ID}" ;
+		rr:class foaf:Person ;
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:name ;
+		rr:objectMap [ rr:column "FNAME" ]
+	] ;
+	rr:predicateObjectMap [
+		rr:predicate foaf:based_near ;
+		rr:objectMap [
+			rr:parentTriplesMap <#AddressTripleMap> ;
+			rr:joinCondition [ rr:child "ADDR" ; rr:parent "ID" ]
+		]
+	] ;
+	.

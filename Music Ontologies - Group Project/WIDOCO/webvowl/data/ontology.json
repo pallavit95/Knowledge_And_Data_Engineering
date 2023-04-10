@@ -1,0 +1,1162 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.semanticweb.org/ontologies/music.owl", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "iri" : "http://www.semanticweb.org/ontologies/music",
+    "version" : "1.0.0",
+    "labels" : {
+      "undefined" : "Music"
+    },
+    "comments" : {
+      "undefined" : "Ontology designed to represent Music domain for KDE group project"
+    },
+    "other" : {
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "1.0.0",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "18",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "20",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "5",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "45",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "69",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "72",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "75",
+    "type" : "owl:Class"
+  }, {
+    "id" : "76",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "80",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "60",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "85",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "49",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "34",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "instances" : 0,
+    "union" : [ "1", "2", "3" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#Album",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483649",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Album"
+    },
+    "attributes" : [ "external" ],
+    "id" : "6"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#Release",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483651",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Release"
+    },
+    "attributes" : [ "external" ],
+    "id" : "10"
+  }, {
+    "instances" : 0,
+    "union" : [ "11", "12" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "8"
+  }, {
+    "instances" : 0,
+    "union" : [ "6", "11", "2" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "13"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "14",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483652",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AlbumPopularity"
+    },
+    "attributes" : [ "external" ],
+    "id" : "15",
+    "superClasses" : [ "16" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "17",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "18",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "19",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "20",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "21",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "22",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "23",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "40",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "41",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "5",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "42",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "43",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "44",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "45",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "32",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483655",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AcousticFeatures"
+    },
+    "attributes" : [ "external" ],
+    "id" : "3"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "27",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "10", "15", "2" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "70"
+  }, {
+    "instances" : 0,
+    "union" : [ "1", "15", "12" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "69"
+  }, {
+    "instances" : 0,
+    "union" : [ "10", "11" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "31"
+  }, {
+    "instances" : 0,
+    "union" : [ "1", "15", "12" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "72"
+  }, {
+    "instances" : 0,
+    "union" : [ "1", "2", "3" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "36"
+  }, {
+    "instances" : 0,
+    "union" : [ "6", "10" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "73"
+  }, {
+    "instances" : 0,
+    "union" : [ "6", "1", "15", "11", "2", "12" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "74"
+  }, {
+    "instances" : 0,
+    "union" : [ "10", "15", "2" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "75"
+  }, {
+    "instances" : 0,
+    "union" : [ "1", "15", "12" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "76"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#Popularity",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483648",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Popularity"
+    },
+    "subClasses" : [ "1", "15", "12" ],
+    "attributes" : [ "external" ],
+    "id" : "16"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#SongPopularity",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483650",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SongPopularity"
+    },
+    "attributes" : [ "external" ],
+    "id" : "1",
+    "superClasses" : [ "16" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#Song",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483653",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Song"
+    },
+    "attributes" : [ "external" ],
+    "id" : "2"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#Artist",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483654",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Artist"
+    },
+    "attributes" : [ "external" ],
+    "id" : "11"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "80",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "62",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "60",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "85",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "49",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "9",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "52",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "34",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "25",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "instances" : 0,
+    "annotations" : {
+      "entityPosition" : [ {
+        "identifier" : "entityPosition",
+        "language" : "undefined",
+        "value" : "_:genid2147483656",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ArtistPopularity"
+    },
+    "attributes" : [ "external" ],
+    "id" : "12",
+    "superClasses" : [ "16" ]
+  } ],
+  "property" : [ {
+    "id" : "4",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "7",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "24",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "26",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "30",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "33",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "35",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "37",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "50",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "51",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "54",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "56",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "57",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "59",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "63",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "65",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "66",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "78",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "86",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "87",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "89",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "90",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "91",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "92",
+    "type" : "owl:datatypeProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#song_type",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "song_type"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#genre",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "genre"
+    },
+    "domain" : "8",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#album_type",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "album_type"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#loudness",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "loudness"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#liveness",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "liveness"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "28"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#img",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "img"
+    },
+    "domain" : "31",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "30"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#acousticness",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "acousticness"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#tempo",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "20",
+    "label" : {
+      "IRI-based" : "tempo"
+    },
+    "domain" : "36",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#artist_type",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "artist_type"
+    },
+    "domain" : "11",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "37"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#valence",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "valence"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf",
+    "inverse" : "47",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "areFeaturesOf"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "object" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#followers",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "49",
+    "label" : {
+      "IRI-based" : "followers"
+    },
+    "domain" : "11",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#name",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "42",
+    "label" : {
+      "IRI-based" : "name"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "50"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hystorical_order",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "52",
+    "label" : {
+      "IRI-based" : "hystorical_order"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "51"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "containsAcousticFeatures"
+    },
+    "domain" : "6",
+    "attributes" : [ "transitive", "external", "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "hasArtistPopularityProperties"
+    },
+    "domain" : "11",
+    "attributes" : [ "external", "object" ],
+    "id" : "54"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#lyrics",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "43",
+    "label" : {
+      "IRI-based" : "lyrics"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "55"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#speechiness",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "speechiness"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "56"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#time_signature",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "23",
+    "label" : {
+      "IRI-based" : "time_signature"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#albumRelease",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "albumRelease"
+    },
+    "domain" : "6",
+    "attributes" : [ "symmetric", "external", "object" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#energy",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "60",
+    "label" : {
+      "IRI-based" : "energy"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "59"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#duration",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "62",
+    "label" : {
+      "IRI-based" : "duration"
+    },
+    "domain" : "0",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "61"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#isComposedBy",
+    "inverse" : "64",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "isComposedBy"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object" ],
+    "id" : "63"
+  }, {
+    "range" : "16",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "65"
+  }, {
+    "range" : "16",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "66"
+  }, {
+    "range" : "16",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "67"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#year_end_score",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "year_end_score"
+    },
+    "domain" : "69",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "68"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasSongPopularityProperties"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "object" ],
+    "id" : "71"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasFeatures",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "hasFeatures"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#track_reference",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "track_reference"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "77"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#isPartOf",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isPartOf"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "hasAlbumPopularityProperties"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "object" ],
+    "id" : "78"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#cover",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "80",
+    "label" : {
+      "IRI-based" : "cover"
+    },
+    "domain" : "73",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "79"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#total_tracks",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "total_tracks"
+    },
+    "domain" : "6",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasAlbum",
+    "inverse" : "78",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "hasAlbum"
+    },
+    "domain" : "15",
+    "attributes" : [ "external", "object" ],
+    "id" : "82"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#artistRelease",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "artistRelease"
+    },
+    "domain" : "11",
+    "attributes" : [ "symmetric", "external", "object" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#explicit",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "85",
+    "label" : {
+      "IRI-based" : "explicit"
+    },
+    "domain" : "2",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "84"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#release_date",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "release_date"
+    },
+    "domain" : "70",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "86"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#popularity",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "popularity"
+    },
+    "domain" : "74",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "87"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#popular",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "45",
+    "label" : {
+      "IRI-based" : "popular"
+    },
+    "domain" : "76",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "88"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasSong",
+    "inverse" : "71",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasSong"
+    },
+    "domain" : "1",
+    "attributes" : [ "external", "object" ],
+    "id" : "89"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#release_date_precision",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "release_date_precision"
+    },
+    "domain" : "75",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "90"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#hasArtist",
+    "inverse" : "54",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "hasArtist"
+    },
+    "domain" : "12",
+    "attributes" : [ "external", "object" ],
+    "id" : "91"
+  }, {
+    "iri" : "http://www.semanticweb.org/ontologies/music.owl#year",
+    "baseIri" : "http://www.semanticweb.org/ontologies/music.owl",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "year"
+    },
+    "domain" : "72",
+    "attributes" : [ "external", "functional", "datatype" ],
+    "id" : "92"
+  } ]
+}

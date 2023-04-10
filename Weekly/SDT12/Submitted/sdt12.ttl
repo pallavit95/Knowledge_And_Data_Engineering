@@ -1,0 +1,766 @@
+@prefix : <http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12> .
+
+<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12> rdf:type owl:Ontology ;
+                                                                rdfs:comment """SDT12-Entertainment
+This is an effort for SDT 12 to describe the ontology in SDT10 using Protege""" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#IsBornIn
+:IsBornIn rdf:type owl:ObjectProperty ;
+          rdfs:domain [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasDOB ;
+                        owl:someValuesFrom xsd:dateTime
+                      ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasActed
+:hasActed rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isActorOf ;
+          rdf:type owl:SymmetricProperty ;
+          rdfs:domain [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasActed ;
+                        owl:someValuesFrom :Actors
+                      ] ;
+          rdfs:range [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasActed ;
+                       owl:someValuesFrom :Movies
+                     ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasDirected
+:hasDirected rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDirectorOf ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :Director
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasDirected ;
+                                           owl:someValuesFrom :Producers
+                                         ]
+                                       )
+                         ] ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( :Songs
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasDirected ;
+                                          owl:someValuesFrom :Movies
+                                        ]
+                                      )
+                        ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasDisliked
+:hasDisliked rdf:type owl:ObjectProperty ,
+                      owl:TransitiveProperty ;
+             rdfs:domain [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDisliked ;
+                           owl:someValuesFrom :UserProfile
+                         ] ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( :Actors
+                                        :Genres
+                                        :Movies
+                                        :Producers
+                                        :Singers
+                                        :Songs
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasDisliked ;
+                                          owl:someValuesFrom :Director
+                                        ]
+                                      )
+                        ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasLiked
+:hasLiked rdf:type owl:ObjectProperty ,
+                   owl:TransitiveProperty ;
+          rdfs:domain [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasLiked ;
+                        owl:someValuesFrom :UserProfile
+                      ] ;
+          rdfs:range [ rdf:type owl:Class ;
+                       owl:unionOf ( :Actors
+                                     :Director
+                                     :Genres
+                                     :Producers
+                                     :Singers
+                                     :Songs
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasLiked ;
+                                       owl:someValuesFrom :Movies
+                                     ]
+                                   )
+                     ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasSung
+:hasSung rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isSingerOf ;
+         rdf:type owl:SymmetricProperty ;
+         rdfs:domain [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasSung ;
+                       owl:someValuesFrom :Singers
+                     ] ;
+         rdfs:range [ rdf:type owl:Restriction ;
+                      owl:onProperty :hasSung ;
+                      owl:someValuesFrom :Songs
+                    ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasWon
+:hasWon rdf:type owl:ObjectProperty ,
+                 owl:SymmetricProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :Actors
+                                    :Director
+                                    :Movies
+                                    :Producers
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasWon ;
+                                      owl:someValuesFrom :Singers
+                                    ]
+                                  )
+                    ] ;
+        rdfs:range [ rdf:type owl:Restriction ;
+                     owl:onProperty :hasWon ;
+                     owl:someValuesFrom :Awards
+                   ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#isActorOf
+:isActorOf rdf:type owl:ObjectProperty ,
+                    owl:SymmetricProperty ;
+           rdfs:domain [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasActed ;
+                         owl:someValuesFrom :Actors
+                       ] ;
+           rdfs:range [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasActed ;
+                        owl:someValuesFrom :Movies
+                      ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#isDirectorOf
+:isDirectorOf rdf:type owl:ObjectProperty ,
+                       owl:SymmetricProperty ;
+              rdfs:domain [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasDirected ;
+                            owl:someValuesFrom :Director
+                          ] ;
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirected ;
+                           owl:someValuesFrom :Movies
+                         ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#isFromRegion
+:isFromRegion rdf:type owl:ObjectProperty ;
+              rdfs:domain [ rdf:type owl:Restriction ;
+                            owl:onProperty :belongsToCountry ;
+                            owl:someValuesFrom xsd:string
+                          ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#isSingerOf
+:isSingerOf rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasSung ;
+                          owl:someValuesFrom :Singers
+                        ] ;
+            rdfs:range [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasSung ;
+                         owl:someValuesFrom :Songs
+                       ] .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#belongsToCountry
+:belongsToCountry rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain [ rdf:type owl:Restriction ;
+                                owl:onProperty :isFromRegion ;
+                                owl:someValuesFrom :Actors
+                              ] ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasDOB
+:hasDOB rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :Director
+                                    :Producers
+                                    :Singers
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :IsBornIn ;
+                                      owl:someValuesFrom :Actors
+                                    ]
+                                  )
+                    ] .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasGenre
+:hasGenre rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Genres ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasLikedMovies
+:hasLikedMovies rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :UserPreference ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasLikedSongs
+:hasLikedSongs rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :UserPreference ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasRatings
+:hasRatings rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Ratings ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#hasReleaseDate
+:hasReleaseDate rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Movies ;
+                rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors
+:Actors rdf:type owl:Class ;
+        owl:equivalentClass :Director ;
+        rdfs:subClassOf owl:Nothing ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :belongsToCountry ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasDOB ;
+                          owl:someValuesFrom xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasRatings ;
+                          owl:someValuesFrom xsd:integer
+                        ] ;
+        owl:disjointWith :Awards ,
+                         :Director ,
+                         :Genres ,
+                         :Movies ,
+                         :Producers ,
+                         :Ratings ,
+                         :Singers ,
+                         :Songs ,
+                         :SuperhitMovies ,
+                         :UserPreference ,
+                         :UserProfile ,
+                         owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid59 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid59 rdf:type owl:Axiom ;
+           owl:annotatedSource :Actors ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Awards
+:Awards rdf:type owl:Class ;
+        owl:disjointWith :Director ,
+                         :Genres ,
+                         :Movies ,
+                         :Producers ,
+                         :Ratings ,
+                         :Singers ,
+                         :Songs ,
+                         :SuperhitMovies ,
+                         :UserPreference ,
+                         :UserProfile .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director
+:Director rdf:type owl:Class ;
+          owl:equivalentClass :Movies ;
+          rdfs:subClassOf owl:Nothing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :belongsToCountry ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasDOB ;
+                            owl:someValuesFrom xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRatings ;
+                            owl:someValuesFrom xsd:integer
+                          ] ;
+          owl:disjointWith :Genres ,
+                           :Movies ,
+                           :Producers ,
+                           :Ratings ,
+                           :Singers ,
+                           :Songs ,
+                           :SuperhitMovies ,
+                           :UserPreference ,
+                           :UserProfile ,
+                           owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid64 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid64 rdf:type owl:Axiom ;
+           owl:annotatedSource :Director ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Genres
+:Genres rdf:type owl:Class ;
+        owl:disjointWith :Movies ,
+                         :Producers ,
+                         :Ratings ,
+                         :Singers ,
+                         :Songs ,
+                         :SuperhitMovies ,
+                         :UserPreference ,
+                         :UserProfile .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies
+:Movies rdf:type owl:Class ;
+        owl:equivalentClass :Producers ;
+        rdfs:subClassOf owl:Nothing ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :belongsToCountry ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasGenre ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasRatings ;
+                          owl:someValuesFrom xsd:integer
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasReleaseDate ;
+                          owl:someValuesFrom xsd:dateTime
+                        ] ;
+        owl:disjointWith :Producers ,
+                         :Ratings ,
+                         :Singers ,
+                         :Songs ,
+                         :SuperhitMovies ,
+                         :UserPreference ,
+                         :UserProfile ,
+                         owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid70 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid70 rdf:type owl:Axiom ;
+           owl:annotatedSource :Movies ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers
+:Producers rdf:type owl:Class ;
+           owl:equivalentClass :Ratings ;
+           rdfs:subClassOf owl:Nothing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :belongsToCountry ;
+                             owl:someValuesFrom xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDOB ;
+                             owl:someValuesFrom xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasRatings ;
+                             owl:someValuesFrom xsd:integer
+                           ] ;
+           owl:disjointWith :Ratings ,
+                            :Singers ,
+                            :Songs ,
+                            :SuperhitMovies ,
+                            :UserPreference ,
+                            :UserProfile ,
+                            owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid75 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid75 rdf:type owl:Axiom ;
+           owl:annotatedSource :Producers ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings
+:Ratings rdf:type owl:Class ;
+         owl:equivalentClass :Singers ;
+         rdfs:subClassOf :Actors ,
+                         :Director ,
+                         :Movies ,
+                         :Producers ,
+                         :Singers ,
+                         :Songs ,
+                         owl:Nothing ;
+         owl:disjointWith :Singers ,
+                          :Songs ,
+                          :SuperhitMovies ,
+                          :UserPreference ,
+                          :UserProfile ,
+                          owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid77 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid77 rdf:type owl:Axiom ;
+           owl:annotatedSource :Ratings ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers
+:Singers rdf:type owl:Class ;
+         owl:equivalentClass :Songs ;
+         rdfs:subClassOf owl:Nothing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :belongsToCountry ;
+                           owl:someValuesFrom xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDOB ;
+                           owl:someValuesFrom xsd:dateTime
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRatings ;
+                           owl:someValuesFrom xsd:integer
+                         ] ;
+         owl:disjointWith :Songs ,
+                          :SuperhitMovies ,
+                          :UserPreference ,
+                          :UserProfile ,
+                          owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid82 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid82 rdf:type owl:Axiom ;
+           owl:annotatedSource :Singers ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs
+:Songs rdf:type owl:Class ;
+       owl:equivalentClass :SuperhitMovies ;
+       rdfs:subClassOf owl:Nothing ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :belongsToCountry ;
+                         owl:someValuesFrom xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasGenre ;
+                         owl:someValuesFrom xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasRatings ;
+                         owl:someValuesFrom xsd:integer
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasReleaseDate ;
+                         owl:someValuesFrom xsd:dateTime
+                       ] ;
+       owl:disjointWith :SuperhitMovies ,
+                        :UserPreference ,
+                        :UserProfile ,
+                        owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid88 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid88 rdf:type owl:Axiom ;
+           owl:annotatedSource :Songs ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies
+:SuperhitMovies rdf:type owl:Class ;
+                owl:equivalentClass :UserPreference ,
+                                    [ owl:intersectionOf ( :Movies
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasRatings ;
+                                                             owl:minQualifiedCardinality "100"^^xsd:nonNegativeInteger ;
+                                                             owl:onDataRange xsd:integer
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf owl:Nothing ;
+                owl:disjointWith :UserPreference ,
+                                 :UserProfile ,
+                                 owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid94 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid94 rdf:type owl:Axiom ;
+           owl:annotatedSource :SuperhitMovies ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference
+:UserPreference rdf:type owl:Class ;
+                owl:equivalentClass :UserProfile ;
+                rdfs:subClassOf :UserProfile ,
+                                owl:Nothing ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasLikedMovies ;
+                                  owl:someValuesFrom xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasLikedSongs ;
+                                  owl:someValuesFrom xsd:string
+                                ] ;
+                owl:disjointWith :UserProfile ,
+                                 owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid98 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid98 rdf:type owl:Axiom ;
+           owl:annotatedSource :UserPreference ;
+           owl:annotatedProperty owl:disjointWith ;
+           owl:annotatedTarget owl:Thing ;
+           rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference> owl:Thing)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile
+:UserProfile rdf:type owl:Class ;
+             owl:equivalentClass owl:Nothing ;
+             rdfs:subClassOf owl:Nothing ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :belongsToCountry ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDOB ;
+                               owl:someValuesFrom xsd:dateTime
+                             ] ;
+             owl:disjointWith owl:Thing .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid102 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+_:genid102 rdf:type owl:Axiom ;
+            owl:annotatedSource :UserProfile ;
+            owl:annotatedProperty owl:disjointWith ;
+            owl:annotatedTarget owl:Thing ;
+            rdfs:comment "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile> owl:Thing)"^^xsd:string .
+
+
+###  http://www.w3.org/2002/07/owl#Nothing
+
+###  http://www.w3.org/2002/07/owl#Thing
+[ rdf:type owl:Annotation ;
+  owl:annotatedSource _:genid102 ;
+  owl:annotatedProperty rdfs:comment ;
+  owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserProfile> owl:Thing)"^^xsd:string ;
+  rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid59 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Actors> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid64 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Director> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid70 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Movies> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid75 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Producers> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid77 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Ratings> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid82 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Singers> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid88 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#Songs> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid94 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#SuperhitMovies> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+[ rdf:type owl:Annotation ;
+   owl:annotatedSource _:genid98 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference>) replaced by DisjointClasses(<http://www.semanticweb.org/pallavit/ontologies/2022/10/sdt12#UserPreference> owl:Thing)"^^xsd:string ;
+   rdfs:comment "Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi on 05/11/22 22:58"^^xsd:string
+ ] .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Actors
+                :Awards
+                :Genres
+                :Movies
+                :Songs
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Awards
+                :Director
+                :Genres
+                :Movies
+                :Songs
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Awards
+                :Genres
+                :Movies
+                :Producers
+                :Songs
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Awards
+                :Genres
+                :Movies
+                :Singers
+                :Songs
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Awards
+                :Genres
+                :Movies
+                :Songs
+                :UserProfile
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,99 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#>.
+
+#Example
+@prefix ex: <http://data.example.org/>
+
+
+
+<#MapDetails>
+ 
+rr:logicalTable [ rr:tableName "MetEireannStationDetails"];
+		
+	rr:subjectMap	[
+		rr:template "http://data.example.org/MetEireann/{STATIONNUMBER}";
+		rr:termType rr:IRI;
+		rr:class sosa:Sampler;
+	];		
+	
+	rr:predicateObjectMap [
+		rr:predicate geo:hasGeometry;
+		rr:objectMap	[
+			rr:template "http://data.example.org/MetEireann/{STATIONNUMBER}/{LONGITUDE}_{LATITUDE}";
+			rr:class geo:Geometry;
+			rr:termType rr:IRI;
+		];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:Height;
+		rr:objectMap  [ 
+			rr:column "HEIGHT";
+			rr:termType rr:Literal;
+			rr:datatype xsd:float;
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:hasStationName;
+		rr:objectMap  [ 
+			rr:column "STATIONNAME";
+			rr:termType rr:Literal;
+		];	
+	];
+	
+		
+	rr:predicateObjectMap [
+	rr:predicate ex:hasCountyName;
+	rr:objectMap [ 
+		rr:column "COUNTY";
+		rr:termType rr:Literal;
+		];		
+	];
+
+	
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:startYear;
+		rr:objectMap	[ 
+			rr:column "OPENYEAR";
+			rr:termType rr:Literal;
+			rr:datatype xsd:float;
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:closeYear;
+		rr:objectMap	[ 
+			rr:column "CLOSEYEAR";
+			rr:termType rr:Literal;
+			rr:datatype xsd:float;
+		]
+	];
+	
+ .
+ 
+ <#MapMetEireannGeo>
+
+rr:logicalTable [ rr:tableName "MetEireannStationDetails"];
+
+	rr:subjectMap	[
+		rr:template "http://data.example.org/MetEireann/{STATIONNUMBER}/{LONGITUDE}_{LATITUDE}";
+		rr:class geo:Geometry;
+		rr:termType rr:IRI;
+	];
+
+	rr:predicateObjectMap [
+	rr:predicate geo:asWKT;
+	rr:objectMap [ 
+		rr:template "POINT({LONGITUDE} {LATITUDE})";
+		rr:termType rr:Literal;
+		rr:datatype geo:wktLiteral;
+		];		
+	];
+
+.

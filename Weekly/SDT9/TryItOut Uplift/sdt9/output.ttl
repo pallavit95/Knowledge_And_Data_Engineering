@@ -1,0 +1,252 @@
+<http://foo.example/Artist/17>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Dua Lipa" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United Kingdom" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2018" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "One Kiss" .
+
+<http://foo.example/Artist/6>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Rene Magritte" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Belgium" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1964" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "The Son of Man" .
+
+<http://foo.example/Artist/20>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Adele" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United Kingdom" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2010" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Rolling in the deep" .
+
+<http://foo.example/Artist/10>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Elton John" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "England" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1974" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Candle In The Wind" .
+
+<http://foo.example/Artist/16>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Taylor Swift" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United States" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2017" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Look what you made me do" .
+
+<http://foo.example/Artist/5>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Diego Rivera" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Mexico" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1934" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Man at the Crossroads" .
+
+<http://foo.example/Artist/15>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "One Direction" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "USA" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2020" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "What Makes You Beautiful" .
+
+<http://foo.example/Artist/4>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Billie Eilish" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United States" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2019" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Bad Guy" .
+
+<http://foo.example/Artist/14>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Bastille" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "UK" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2022" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Distorted Light Beam" .
+
+<http://foo.example/Artist/3>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Elton John" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United Kingdom" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1970" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Your Song" .
+
+<http://foo.example/Artist/9>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "James Brown" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "USA" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2012" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Safe House" .
+
+<http://foo.example/Artist/23>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Katy Perry" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United States" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2013" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Roar" .
+
+<http://foo.example/Artist/19>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Maroon 5" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "America" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2014" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Sugar" .
+
+<http://foo.example/Artist/13>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Hearts & Colors" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Sweden" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2019" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Lion" .
+
+<http://foo.example/Artist/2>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Avici" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "USA" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2014" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "The Nights" .
+
+<http://foo.example/Artist/8>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Michael Jackson" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "USA" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1983" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Thriller" .
+
+<http://foo.example/Artist/22>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Rihanna" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United States" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2010" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Love the way you lie" .
+
+<http://foo.example/Artist/12>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Celine Dion" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Canada" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1997" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Titanic" .
+
+<http://foo.example/Artist/18>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "The Weeknd" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Canada" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2016" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Die for you" .
+
+<http://foo.example/Artist/1>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "The Weekend" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Canada" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2016" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Starboy" .
+
+<http://foo.example/Artist/7>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Freddie Mercury" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Tanzania" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "1980" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Flash Gordon" .
+
+<http://foo.example/Artist/21>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Lady Gaga" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "United States" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2008" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "Poker Face" .
+
+<http://foo.example/Artist/11>
+        a       <http://dbpedia.org/ontology/Musician> ;
+        <http://xmlns.com/foaf/0.1/SongBy>
+                "Bob Marley" ;
+        <http://xmlns.com/foaf/0.1/SongFrom>
+                "Jamaica" ;
+        <http://xmlns.com/foaf/0.1/SongReleaseDate>
+                "2007" ;
+        <http://xmlns.com/foaf/0.1/SongTitle>
+                "I Am Legend" .

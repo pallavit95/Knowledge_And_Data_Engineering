@@ -1,0 +1,61 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix def: <http://www.example.org/sdt7#>.
+
+def:Person rdf:type rdfs:Class.
+def:Student rdf:type rdfs:Class; rdfs:subClassOf def:Person.
+
+def:Pallavit a rdfs:Class; rdfs:subClassOf def:Student;
+def:Nationality "Indian";
+def:Gender "Male".
+
+def:Characteristics rdfs:subClassOf def:Pallavit.
+
+def:StudiesAt rdf:Property def:Characteristics;
+def:College "Trinity College Dublin";
+def:Pincode "Dublin 2";
+def:Course "Ms CS - IS".
+
+def:Hobbies rdf:Property def:Characteristics;
+def:AlwaysUpFor "Hiking";
+def:BestSports "Swimming";
+def:LikesPlaying "Piano".
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:ns0="http://www.example.org/sdt7#">
+
+  <rdfs:Class rdf:about="http://www.example.org/sdt7#Person">
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.example.org/sdt7#Student">
+    <rdfs:subClassOf rdf:resource="http://www.example.org/sdt7#Person"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.example.org/sdt7#Pallavit">
+    <rdfs:subClassOf rdf:resource="http://www.example.org/sdt7#Student"/>
+    <ns0:Nationality>Indian</ns0:Nationality>
+    <ns0:Gender>Male</ns0:Gender>
+  </rdfs:Class>
+
+  <rdf:Description rdf:about="http://www.example.org/sdt7#Characteristics">
+    <rdfs:subClassOf rdf:resource="http://www.example.org/sdt7#Pallavit"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.example.org/sdt7#StudiesAt">
+    <rdf:Property rdf:resource="http://www.example.org/sdt7#Characteristics"/>
+    <ns0:College>Trinity College Dublin</ns0:College>
+    <ns0:Pincode>Dublin 2</ns0:Pincode>
+    <ns0:Course>Ms CS - IS</ns0:Course>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.example.org/sdt7#Hobbies">
+    <rdf:Property rdf:resource="http://www.example.org/sdt7#Characteristics"/>
+    <ns0:AlwaysUpFor>Hiking</ns0:AlwaysUpFor>
+    <ns0:BestSports>Swimming</ns0:BestSports>
+    <ns0:LikesPlaying>Piano</ns0:LikesPlaying>
+  </rdf:Description>
+
+</rdf:RDF>

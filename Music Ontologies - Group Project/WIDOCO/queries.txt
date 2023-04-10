@@ -1,0 +1,231 @@
+1.
+PREFIX : <http://www.semanticweb.org/ontologies/music#>
+SELECT ?songName ?lyrics ?releaseDate where {
+#   Which popular songs in Pop genre refers to “love” in their lyrics
+    ?song a :Song.
+    ?aco a :AcousticFeatures.
+    ?songp a :SongPopularity.
+    ?songp :popular "True".
+    ?songp :hasSong ?song.
+    ?song :hasFeatures ?aco.
+    ?song :name ?songName.
+    ?aco :lyrics ?lyrics.
+    ?song :release_date ?releaseDate.
+    FILTER CONTAINS(?lyrics,"love").
+}
+
+2.
+#What is the average duration of songs of type solo from the most popular artist of 2017?
+PREFIX : <http://www.semanticweb.org/ontologies/music#>
+select (AVG(xsd:integer(?song_duration)/60000) as ?avg_duration) ?artistImage ?artistName where {
+    ?artist_2 a :Artist.
+    ?release a :Release.
+    ?album a :Album.
+    ?song a :Song.
+    ?artist_2 :name ?artistName.
+    ?artist_2 :artistRelease ?release.
+    ?release :albumRelease ?album.
+    ?album :isComposedBy ?song.
+    ?album :cover ?albumCover.
+    ?song :song_type ?song_type.
+    ?song :duration ?song_duration.
+    {
+        select ?artistName ?artistImage where {
+            ?artist_pop a :ArtistPopularity.
+            ?artist a :Artist.
+            ?artist_pop :hasArtist ?artist.
+            ?artist :name ?artistName.
+            ?artist :img ?artistImage.
+            ?artist :popularity ?artist_popularity.
+            ?artist_pop :year ?artist_pop_year.
+            FILTER(?artist_pop_year="2017").
+        } ORDER BY DESC(?artist_popularity) LIMIT 1
+    }
+    FILTER(?song_type="Solo")
+} GROUP BY ?artistName ?albumCover ?artistImage LIMIT 1
+
+3.
+PREFIX ex: <http://www.semanticweb.org/ontologies/music#>
+select  ?albumName ?album_cover ?albumPopularity (AVG(xsd:double(?spichness)) as ?avg_spichness)  
+where { 
+#    3. Which popular rap album from an artist has the higher average of "Speechiness/Energy/Liveness" among its songs? 
+    ?album rdf:type ex:Album.
+    ?album ex:cover ?album_cover.
+    ?album ex:albumRelease ?albumRelease.
+    ?albumRelease ex:artistRelease ?artist.
+    ?album ex:popularity ?albumPopularity.
+    ?artist ex:genre ?artistgenre.
+    filter( contains(?artistgenre, "rap")). 
+    ?album ex:name ?albumName.
+    ?album ex:containsAcousticFeatures ?features.
+    ?features ex:speechiness ?spichness.
+    ?features ex:energy ?energy.
+    ?features ex:liveness ?liveness.
+} group by ?albumName ?album_cover ?albumPopularity ORDER BY DESC(?avg_spichness) limit 100
+
+4.
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://www.semanticweb.org/ontologies/music#>
+select ?artist_name ?artist_img ?maxx
+where
+{
+	?artist ex:name ?artist_name.
+	?artist ex:img ?artist_img.
+    {select ?artist (count(?album) as ?maxx)
+    where { 
+        ?album rdf:type ex:Album.
+        ?album ex:albumRelease ?albumRelease.
+        ?album ex:cover ?album_cover.
+        ?album ex:popularity ?albumpop.
+        ?albumRelease ex:artistRelease ?artist.
+        ?artist ex:name ?artistName.
+            ?artist ex:artist_type ?artistType.
+            filter(?artistType="band")
+        filter(?albumpop > "80").
+    } GROUP BY ?artist ORDER BY DESC(?maxx) limit 1}
+}
+
+5.
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://www.semanticweb.org/ontologies/music#>
+select ?artistName ?album_cover ?songname ?liveness ?songPop
+{
+    ?artist ex:name ?artistName.
+    ?album ex:isComposedBy ?songs.
+    ?album ex:cover ?album_cover.
+    ?songs ex:name ?songname.
+    ?songs ex:hasFeatures ?features.
+    ?features ex:liveness ?liveness.
+    ?songs ex:popularity ?songPop.
+    ?album ex:albumRelease ?albumRelease.
+    ?albumRelease ex:artistRelease ?artist.
+    {
+        select ?artist ?artist_name ?artist_img ?maxx
+        where
+        {
+            ?artist ex:name ?artist_name.
+            ?artist ex:img ?artist_img.
+            {
+            select ?artist (count(?album) as ?maxx)
+            where { 
+
+                ?album rdf:type ex:Album.
+                ?album ex:albumRelease ?albumRelease.
+                ?album ex:cover ?album_cover.
+                ?album ex:popularity ?albumpop.
+                ?albumRelease ex:artistRelease ?artist.
+
+                ?artist ex:name ?artistName.
+                    ?artist ex:artist_type ?artistType.
+                    filter(?artistType="band")
+                filter(?albumpop > "80").
+            } GROUP BY ?artist ORDER BY DESC(?maxx)
+            limit 1
+            }
+        }
+    }
+}ORDER BY DESC(?liveness) limit 1
+
+6.
+PREFIX : <http://www.semanticweb.org/ontologies/music#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select (AVG(xsd:double(?valence)) as ?avg_val) ?albumName ?album_cover ?artistName ?release_date where {
+    {
+        select ?valence ?albumName ?album_cover ?songName ?artistName ?release_date where {
+            ?artist a :Artist.
+            ?album a :Album.
+            ?aco a :AcousticFeatures.
+            ?release a :Release.
+            ?aco :valence ?valence.
+            ?album :containsAcousticFeatures ?aco.
+            ?artist :artistRelease ?release.
+            ?album :name ?albumName.
+ 			?album :cover ?album_cover.
+            ?artist :name ?artistName.
+            ?album :albumRelease ?release.
+            ?release :release_date ?release_date.
+            FILTER CONTAINS(?release_date,"2015")
+        } GROUP BY ?albumName ?album_cover ?valence ?songName ?artistName ?release_date
+    }
+} GROUP BY ?albumName ?album_cover ?artistName ?release_date ORDER BY DESC(?avg_val)
+
+7.
+PREFIX : <http://www.semanticweb.org/ontologies/music#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?songName ?dance ?release_date where{
+    ?song_pop a :SongPopularity.
+    ?song a :Song.
+    ?aco a :AcousticFeatures.
+    ?song_pop :hasSong ?song.
+    ?song :hasFeatures ?aco.
+    ?song :name ?songName.
+    ?song_pop :popular "True".
+    ?aco :danceability ?dance.
+    ?song :release_date ?release_date.
+    FILTER CONTAINS(?release_date,"2018").
+    FILTER(xsd:double(?dance) > 0.7).
+}
+
+8.
+PREFIX : <http://www.semanticweb.org/ontologies/music#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select (AVG(xsd:double(?tempo)) as ?avg_temp) where{
+    {
+        select ?tempo where {
+            ?artist a :Artist.
+            ?release a :Release.
+            ?album a :Album.
+            ?song a :Song.
+            ?artist :artistRelease ?release.
+            ?release :albumRelease ?album.
+            ?album :isComposedBy ?song.
+            ?song :tempo ?tempo.
+            ?artist :genre ?genre.
+            ?artist :name ?artistName.
+            ?song :release_date ?release_date.
+            ?song :popularity ?song_popularity.
+            FILTER CONTAINS(?genre,"electro").
+        } ORDER BY DESC(?song_popularity) LIMIT 20
+    }
+}
+
+9.
+PREFIX : <http://www.semanticweb.org/ontologies/music#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?albumName ?album_cover ?avg_energy ?popularity where {
+    {
+        select ?albumName ?album_cover ?popularity (AVG(xsd:double(?energy)) as ?avg_energy) where{
+            ?album a :Album.
+            ?aco a :AcousticFeatures.
+            ?album :containsAcousticFeatures ?aco.
+            ?album :name ?albumName.
+            ?album :cover ?album_cover.
+            ?aco :energy ?energy.
+            FILTER(xsd:double(?energy) > 0.5).
+            ?album :popularity ?popularity.
+        } GROUP BY ?albumName ?album_cover ?popularity ORDER BY DESC(?popularity) 
+    }
+}ORDER BY DESC(?avg_energy) LIMIT 5
+
+10.
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://www.semanticweb.org/ontologies/music#>
+select ?artistname ?artist_img ?artistpop ?num_of_sadsongs
+where{
+    ?artist ex:name ?artistname.
+    ?artist ex:img ?artist_img.
+    ?artist ex:popularity ?artistpop.
+    {
+        select ?artist  (count(?songs) as ?num_of_sadsongs) 
+        where { 
+            ?album rdf:type ex:Album.
+            ?album ex:albumRelease ?albumRelease.
+            ?album ex:cover ?album_cover.
+            ?albumRelease ex:artistRelease ?artist.
+            ?album ex:isComposedBy ?songs.
+            ?songs ex:hasFeatures ?features.
+            ?features ex:valence ?valence.
+            filter(xsd:double(?valence) < 0.5)
+        } group by ?artist  ORDER BY DESC(?num_of_sadsongs) limit 1
+    }
+}

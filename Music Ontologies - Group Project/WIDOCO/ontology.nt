@@ -1,0 +1,381 @@
+<http://www.semanticweb.org/ontologies/music> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.semanticweb.org/ontologies/music> <http://www.w3.org/2000/01/rdf-schema#comment> "Ontology designed to represent Music domain for KDE group project" .
+<http://www.semanticweb.org/ontologies/music> <http://www.w3.org/2000/01/rdf-schema#label> "Music" .
+<http://www.semanticweb.org/ontologies/music> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://ontologydesignpatterns.org/opla-sd#entityPosition
+<http://ontologydesignpatterns.org/opla-sd#entityPosition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://ontologydesignpatterns.org/opla-sd#entityPositionX
+<http://ontologydesignpatterns.org/opla-sd#entityPositionX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://ontologydesignpatterns.org/opla-sd#entityPositionY
+<http://ontologydesignpatterns.org/opla-sd#entityPositionY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/ontologies/music.owl#albumRelease
+<http://www.semanticweb.org/ontologies/music.owl#albumRelease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#albumRelease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#albumRelease> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#albumRelease> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Release> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf
+<http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/ontologies/music.owl#hasFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#areFeaturesOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#artistRelease
+<http://www.semanticweb.org/ontologies/music.owl#artistRelease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#artistRelease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#artistRelease> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#artistRelease> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Release> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures
+<http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#containsAcousticFeatures> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasAlbum
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbum> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties> .
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#hasAlbumPopularityProperties> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasArtist
+<http://www.semanticweb.org/ontologies/music.owl#hasArtist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasArtist> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties> .
+<http://www.semanticweb.org/ontologies/music.owl#hasArtist> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#hasArtist> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties
+<http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#hasArtistPopularityProperties> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasFeatures
+<http://www.semanticweb.org/ontologies/music.owl#hasFeatures> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasFeatures> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#hasFeatures> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasSong
+<http://www.semanticweb.org/ontologies/music.owl#hasSong> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasSong> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties> .
+<http://www.semanticweb.org/ontologies/music.owl#hasSong> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#hasSong> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties
+<http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#hasSongPopularityProperties> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#isComposedBy
+<http://www.semanticweb.org/ontologies/music.owl#isComposedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#isComposedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/ontologies/music.owl#isPartOf> .
+<http://www.semanticweb.org/ontologies/music.owl#isComposedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#isComposedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#isPartOf
+<http://www.semanticweb.org/ontologies/music.owl#isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#isPartOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#isPartOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/ontologies/music.owl#acousticness
+<http://www.semanticweb.org/ontologies/music.owl#acousticness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#acousticness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#acousticness> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#acousticness> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#album_type
+<http://www.semanticweb.org/ontologies/music.owl#album_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#album_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#album_type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#album_type> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#artist_type
+<http://www.semanticweb.org/ontologies/music.owl#artist_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#artist_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#artist_type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#artist_type> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#cover
+<http://www.semanticweb.org/ontologies/music.owl#cover> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#cover> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#cover> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#cover> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Release> .
+<http://www.semanticweb.org/ontologies/music.owl#cover> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#duration
+<http://www.semanticweb.org/ontologies/music.owl#duration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#duration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#duration> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#duration> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#duration> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#duration> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#energy
+<http://www.semanticweb.org/ontologies/music.owl#energy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#energy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#energy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#energy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#explicit
+<http://www.semanticweb.org/ontologies/music.owl#explicit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#explicit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#explicit> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#explicit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#followers
+<http://www.semanticweb.org/ontologies/music.owl#followers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#followers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#followers> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#followers> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#genre
+<http://www.semanticweb.org/ontologies/music.owl#genre> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#genre> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#genre> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#genre> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#genre> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#hystorical_order
+<http://www.semanticweb.org/ontologies/music.owl#hystorical_order> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hystorical_order> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#hystorical_order> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#hystorical_order> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#img
+<http://www.semanticweb.org/ontologies/music.owl#img> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#img> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#img> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#img> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Release> .
+<http://www.semanticweb.org/ontologies/music.owl#img> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#liveness
+<http://www.semanticweb.org/ontologies/music.owl#liveness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#liveness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#liveness> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#liveness> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#loudness
+<http://www.semanticweb.org/ontologies/music.owl#loudness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#loudness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#loudness> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#loudness> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#lyrics
+<http://www.semanticweb.org/ontologies/music.owl#lyrics> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#lyrics> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#lyrics> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#lyrics> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#name
+<http://www.semanticweb.org/ontologies/music.owl#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#popular
+<http://www.semanticweb.org/ontologies/music.owl#popular> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#popular> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#popular> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#popular> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#popular> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#popular> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#popularity
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Artist> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#popularity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#release_date
+<http://www.semanticweb.org/ontologies/music.owl#release_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Release> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#release_date_precision
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Release> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#release_date_precision> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#song_type
+<http://www.semanticweb.org/ontologies/music.owl#song_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#song_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#song_type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#song_type> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#speechiness
+<http://www.semanticweb.org/ontologies/music.owl#speechiness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#speechiness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#speechiness> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#speechiness> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#tempo
+<http://www.semanticweb.org/ontologies/music.owl#tempo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#tempo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#tempo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#tempo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#tempo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#tempo> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#time_signature
+<http://www.semanticweb.org/ontologies/music.owl#time_signature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#time_signature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#time_signature> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#time_signature> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#total_tracks
+<http://www.semanticweb.org/ontologies/music.owl#total_tracks> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#total_tracks> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#total_tracks> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Album> .
+<http://www.semanticweb.org/ontologies/music.owl#total_tracks> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#track_reference
+<http://www.semanticweb.org/ontologies/music.owl#track_reference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#track_reference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#track_reference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#Song> .
+<http://www.semanticweb.org/ontologies/music.owl#track_reference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#valence
+<http://www.semanticweb.org/ontologies/music.owl#valence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#valence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#valence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> .
+<http://www.semanticweb.org/ontologies/music.owl#valence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#year
+<http://www.semanticweb.org/ontologies/music.owl#year> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#year> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#year> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#year> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#year> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#year> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#year_end_score
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/ontologies/music.owl#SongPopularity> .
+<http://www.semanticweb.org/ontologies/music.owl#year_end_score> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures
+<http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#AcousticFeatures> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid1 .
+_:genid1 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid1 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "276.2120589610303"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid1 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "260.2596294174863"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#Album
+<http://www.semanticweb.org/ontologies/music.owl#Album> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#Album> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid2 .
+_:genid2 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid2 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "15.023610169860099"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid2 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "223.56614268786575"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity
+<http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/ontologies/music.owl#Popularity> .
+<http://www.semanticweb.org/ontologies/music.owl#AlbumPopularity> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid3 .
+_:genid3 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid3 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "79.76055127107477"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid3 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "143.54352189031565"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#Artist
+<http://www.semanticweb.org/ontologies/music.owl#Artist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#Artist> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid4 .
+_:genid4 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid4 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "15.398393444127086"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid4 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "226.56494224648688"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity
+<http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/ontologies/music.owl#Popularity> .
+<http://www.semanticweb.org/ontologies/music.owl#ArtistPopularity> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid5 .
+_:genid5 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid5 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "254.56630120383372"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid5 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "276.1792167242872"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#Popularity
+<http://www.semanticweb.org/ontologies/music.owl#Popularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#Popularity> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid6 .
+_:genid6 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid6 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "211.02166821853427"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid6 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "131.39474707080282"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#Release
+<http://www.semanticweb.org/ontologies/music.owl#Release> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#Release> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid7 .
+_:genid7 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid7 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "36.47212903784615"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid7 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "153.26858698350657"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#Song
+<http://www.semanticweb.org/ontologies/music.owl#Song> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#Song> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid8 .
+_:genid8 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid8 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "149.87961162642318"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid8 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "145.19926265831364"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# http://www.semanticweb.org/ontologies/music.owl#SongPopularity
+<http://www.semanticweb.org/ontologies/music.owl#SongPopularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/ontologies/music.owl#SongPopularity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/ontologies/music.owl#Popularity> .
+<http://www.semanticweb.org/ontologies/music.owl#SongPopularity> <http://ontologydesignpatterns.org/opla-sd#entityPosition> _:genid9 .
+_:genid9 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid9 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "224.44034321720073"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid9 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "110.80568926998225"^^<http://www.w3.org/2001/XMLSchema#double> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
